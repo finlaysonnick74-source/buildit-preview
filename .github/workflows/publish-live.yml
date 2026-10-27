@@ -1,0 +1,19 @@
+name: Publish to buildit.net.au
+on:
+  push:
+    branches: [fix/qa-round-1]
+  workflow_dispatch:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Send this version live
+        env:
+          KEY: ${{ secrets.LIVE_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && echo "$KEY" > ~/.ssh/id && chmod 600 ~/.ssh/id
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/id" git push --force git@github.com:finlaysonnick74-source/buildit-nick-version.git HEAD:refs/heads/cursor/buildit-multipage-7f67
