@@ -178,3 +178,19 @@ body::before{content:"";position:fixed;inset:-20%;z-index:-1;pointer-events:none
 @media(prefers-reduced-motion:reduce){body::before{animation:none}}
 main section,header,footer{background-color:transparent !important}
 .s-light,#learning{background-color:rgba(11,16,36,.5) !important}
+
+/* first five free sites */
+.free5{margin-top:44px;padding-top:36px;border-top:1px solid rgba(244,241,234,.12)}
+.fs-h{font:400 26px "Young Serif";margin:0 0 8px}
+.fs-grid{list-style:none;padding:0;margin:22px 0 0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.fs-slot{position:relative;border:1px dashed rgba(180,190,216,.35);border-radius:16px;padding:18px;background:transparent;color:#b4bed8}
+.fs-slot h3{font:400 19px "Young Serif";margin:6px 0 4px;color:#eef2ff}
+.fs-slot p{margin:0;font-size:15px;color:#b4bed8}
+.fs-n{font:700 13px "Figtree";color:#a78bfa;letter-spacing:.08em}
+.fs-done{border:1px solid var(--cy);background:#0b1024;padding:0;transition:transform .2s,box-shadow .2s}
+.fs-done a{display:block;padding:18px;text-decoration:none;color:inherit;cursor:pointer;height:100%}
+.fs-done p{color:var(--cy);font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.fs-done .fs-n{color:var(--cy)}
+.fs-done:hover,.fs-done:focus-within{transform:translateY(-3px);box-shadow:0 8px 24px rgba(34,211,238,.18)}
+@media(max-width:900px){.fs-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.fs-grid{grid-template-columns:1fr}}
