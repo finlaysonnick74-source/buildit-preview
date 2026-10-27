@@ -12,14 +12,14 @@ function build(){line.innerHTML='';let i=0;
     [...w].forEach(c=>{const ch=document.createElement('span');ch.className='ch';ch.textContent=c;ch.style.setProperty('--i',i++);wd.appendChild(ch)});line.appendChild(wd)});
   $$('.intro-strips i').forEach((s,k)=>s.style.setProperty('--s',k));}
 function end(){if(intro.hidden)return;timers.forEach(clearTimeout);cancelAnimationFrame(raf);
-  if(window.TVI){root.classList.add('tv-settle');setTimeout(()=>{TVI.stop();root.classList.remove('tv-settle')},2600)}
   try{sessionStorage.setItem('bi-intro','1')}catch(e){}
   const fin=()=>{intro.hidden=true;intro.classList.remove('out','fade','build');root.classList.remove('intro-on');const h=$('#h1');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true})}};
+  if(window.TVI&&!RM){TVI.glide(intro,fin);return}
   if(RM){intro.animate([{opacity:1},{opacity:0}],{duration:500}).onfinish=fin}
   else{intro.classList.add('out');timers=[setTimeout(fin,1400)]}}
 function play(){if(window.TVI){if(RM){intro.hidden=true;root.classList.remove('intro-on');try{sessionStorage.setItem('bi-intro','1')}catch(e){}return}
   build();window.scrollTo({top:0,behavior:'instant'});root.classList.add('intro-on');intro.hidden=false;intro.classList.remove('out','build');$('#introSkip').focus();TVI.start(intro);
-  timers=[setTimeout(end,2100)];return}
+  timers=[setTimeout(end,2000)];return}
   build();window.scrollTo({top:0,behavior:'instant'});root.classList.add('intro-on');intro.hidden=false;intro.classList.remove('out','build');line.classList.remove('go');
   void line.offsetWidth;$('#introSkip').focus();
   if(RM){line.classList.add('go');line.animate([{opacity:0},{opacity:1}],{duration:900,fill:'forwards'});cnt.textContent='100';timers=[setTimeout(()=>intro.classList.add('build'),1200),setTimeout(end,3000)];return}

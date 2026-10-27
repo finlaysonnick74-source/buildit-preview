@@ -5,8 +5,8 @@ function mk(t,c,p){var e=d.createElement(t);e.className=c;e.setAttribute('aria-h
 var g=mk('div','tv-grid');b.prepend(g);var pr=mk('div','tv-prog');
 var main=d.querySelector('main');if(!main)return;
 // floating glass shape layered over the first heading on inner pages
-var stage=d.querySelector('.tv-stage'),host=null,fl=null;
-if(!stage){host=main.querySelector('section');if(host&&host.querySelector('h1')&&!host.querySelector('.s1-fig')){host.classList.add('tv-host');fl=d.createElement('img');fl.className='tv-float';fl.src='img/tv-shape.webp';fl.alt='';fl.width=560;fl.height=711;fl.decoding='async';fl.setAttribute('aria-hidden','true');host.appendChild(fl)}}
+var stage=null,host=null,fl=null,show=d.querySelector('.tv-show');
+if(!d.querySelector('.s1-fig')){host=main.querySelector('section');if(host&&host.querySelector('h1')){host.classList.add('tv-host');fl=d.createElement('img');fl.className='tv-float';fl.src='img/tv-shape.webp';fl.alt='';fl.width=560;fl.height=711;fl.decoding='async';fl.setAttribute('aria-hidden','true');host.appendChild(fl)}}
 // hairlines with travelling dots
 var secs=[].slice.call(main.querySelectorAll('main>section.s:not(:first-of-type),.oldwrap>section:not(:first-child)'));
 secs.forEach(function(s){var h=mk('div','tv-hl',s);h.appendChild(d.createElement('i'))});
@@ -36,6 +36,7 @@ function frame(t){tick=false;var y=scrollY,vh=innerHeight,h=d.documentElement.sc
   imgs.forEach(function(im){var r=im.getBoundingClientRect();if(r.bottom>0&&r.top<vh)im.style.setProperty('--py',((r.top+r.height/2-vh/2)/vh*-14).toFixed(1)+'px')});
   if(fig){var fr=fig.getBoundingClientRect();if(fr.bottom>0&&fr.top<vh)fig.style.transform='translate3d(0,'+((fr.top-vh*.3)*-.12).toFixed(1)+'px,0)'}
   if(fl){fl.style.setProperty('--fy',(y*.35).toFixed(1)+'px');fl.style.setProperty('--fr',(y*.06).toFixed(1)+'deg')}
+  if(show){var shr=show.getBoundingClientRect();if(shr.bottom>0&&shr.top<vh){var sp=1-(shr.top+shr.height/2)/vh;show.querySelector('.tv-eleimg').style.setProperty('--ey',(sp*-30).toFixed(1)+'px');show.querySelector('.tv-eleimg').style.setProperty('--es',(0.94+Math.min(1,Math.max(0,sp+.2))*.08).toFixed(3));show.querySelector('.tv-ring').style.setProperty('--rr',(sp*140).toFixed(1)+'deg')}}
   if(stage){var sr=stage.getBoundingClientRect();if(sr.bottom>0){var p=Math.min(1,Math.max(0,-sr.top/(sr.height-vh)));
    word[0].style.transform='translate3d('+(-p*28)+'vw,0,0)';word[1].style.transform='translate3d('+(p*28)+'vw,0,0)';
    ele.style.setProperty('--es',(1+p*.1).toFixed(3));ele.style.setProperty('--ex',(p*-4).toFixed(2)+'vw');ele.style.setProperty('--ey',(Math.sin((t||0)/1400)*6-p*30).toFixed(1)+'px');
