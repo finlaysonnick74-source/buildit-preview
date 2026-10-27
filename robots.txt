@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /tomas-private/
+
+Sitemap: https://buildit-websites.github.io/sitemap.xml

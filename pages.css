@@ -3,14 +3,15 @@
 .oldwrap p.price small{font:400 15px/1.4 "Figtree",sans-serif;color:var(--mut);margin-top:8px}
 .oldwrap .phero .lead{margin-top:18px;color:#D9DEE8}
 .oldwrap .prose,.oldwrap .grid4 p,.oldwrap .tier>p,.oldwrap .steps p,.oldwrap .faq div{color:#D9DEE8}
-.oldwrap .grid4 article,.oldwrap .tier{background:#0E1838}
-.oldwrap .psec:nth-of-type(even) .grid4 article,.oldwrap .psec:nth-of-type(even) .tier{background:#0B1530}
+.oldwrap .grid4 article,.oldwrap .tier{background:#0b1024}
+.oldwrap .psec:nth-of-type(even) .grid4 article,.oldwrap .psec:nth-of-type(even) .tier{background:#070a16}
 .oldwrap .ticks li{font-size:17px}
-.oldwrap .label,.oldwrap .mini{color:#A9B3C7}
-.oldwrap tbody th{background:#0B1530}
-.oldwrap .psec:nth-of-type(even) tbody th{background:#111D42}
+.oldwrap .label,.oldwrap .mini{color:#b4bed8}
+.oldwrap tbody th{background:#070a16}
+.oldwrap .psec:nth-of-type(even) tbody th{background:#0b1024}
 .oldwrap form label{font-size:17px}
-.oldwrap .brief-note{font-size:16px;color:#A9B3C7}
+.oldwrap .brief-note{font-size:16px;color:#b4bed8}
 .oldwrap .phero .light{display:none}
 @media(max-width:600px){.oldwrap .phero-h{font-size:34px}}
 body{min-height:100vh;display:flex;flex-direction:column}body>main{flex:1 0 auto}
+.cursor{display:none!important}
