@@ -90,7 +90,7 @@ main>section.s,main .oldwrap>section{position:relative}
 /* intro: silhouette assembles from points */
 .tv-icv{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
 .intro.tv-i .intro-line,.intro.tv-i .intro-strips,.intro.tv-i .intro-meta{opacity:0!important}
-.intro.tv-i .intro-mark{top:24%}
+.intro.tv-i .intro-mark{display:none!important}
 .intro.tv-i .intro-skip{z-index:5}
 @media(prefers-reduced-motion:reduce){
  .tv-stage{height:auto}.tv-pin{position:relative;height:auto;min-height:90vh}

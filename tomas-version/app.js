@@ -19,7 +19,7 @@ function end(){if(intro.hidden)return;timers.forEach(clearTimeout);cancelAnimati
   else{intro.classList.add('out');timers=[setTimeout(fin,1400)]}}
 function play(){if(window.TVI){if(RM){intro.hidden=true;root.classList.remove('intro-on');try{sessionStorage.setItem('bi-intro','1')}catch(e){}return}
   build();window.scrollTo({top:0,behavior:'instant'});root.classList.add('intro-on');intro.hidden=false;intro.classList.remove('out','build');$('#introSkip').focus();TVI.start(intro);
-  timers=[setTimeout(()=>intro.classList.add('build'),1000),setTimeout(end,2300)];return}
+  timers=[setTimeout(end,2100)];return}
   build();window.scrollTo({top:0,behavior:'instant'});root.classList.add('intro-on');intro.hidden=false;intro.classList.remove('out','build');line.classList.remove('go');
   void line.offsetWidth;$('#introSkip').focus();
   if(RM){line.classList.add('go');line.animate([{opacity:0},{opacity:1}],{duration:900,fill:'forwards'});cnt.textContent='100';timers=[setTimeout(()=>intro.classList.add('build'),1200),setTimeout(end,3000)];return}
