@@ -72,3 +72,6 @@ main,.s{position:relative}
  .hero-h em,.sh em{animation:none}
  .wc,.wc img,.btn{transition:none}
 }
+/* values tiles: AA text contrast */
+.vals li b{color:#7aa4ff!important}
+.vals li:nth-child(3n+2) b,.vals li:nth-child(3n+2) span{color:#fff!important}
