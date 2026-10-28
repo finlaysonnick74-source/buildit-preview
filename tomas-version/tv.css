@@ -111,11 +111,6 @@ main>section.s,main .oldwrap>section{position:relative}
 .tv-itxt.on .tv-iname,.tv-itxt.on .tv-iline{opacity:1;transform:none}
 .tv-itxt.off .tv-iname,.tv-itxt.off .tv-iline{opacity:0;transform:translateY(-12px);transition:opacity .25s ease,transform .4s ease}
 .tv-itxt .tv-iname::after{content:"";display:inline-block;width:.14em;height:.14em;background:var(--acc);margin-left:.06em}
-/* v4: elephant showpiece inside the work section */
-.tv-show{position:relative;margin:clamp(60px,8vw,110px) auto 0;width:min(520px,86vw);display:grid;place-items:center;text-align:center}
-.tv-show .tv-ring{width:86%;left:50%;top:44%}
-.tv-show .tv-eleimg{width:100%;margin:0;position:relative;z-index:2}
-.tv-show figcaption{position:relative;z-index:2;margin-top:18px;font:800 clamp(24px,2.6vw,36px)/1.1 "Figtree",system-ui,sans-serif;color:#eef2ff;letter-spacing:-.02em}
 /* v4: steps + lessons */
 .vals li .stp{display:block;font:700 12px "Figtree",system-ui,sans-serif;font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:#b4bed8;margin-bottom:4px}
 .vals li:nth-child(3n+2) .stp{color:#fff}
@@ -123,3 +118,18 @@ main>section.s,main .oldwrap>section{position:relative}
 .taught b{font-weight:700}
 .cards>li:nth-child(4n+3) .taught{border-color:rgba(4,5,10,.2)}
 .fs-n{font-size:12px!important;letter-spacing:.14em;text-transform:uppercase}
+
+/* v4: Tomas + elephant companion (geometry shared with the intro: elephant h=.55H, left=+.3W, top=.42H of his box) */
+.tv-duo{--sw:clamp(150px,20vw,330px);position:relative}
+.tv-duo .tv-me{position:relative;z-index:3;width:var(--sw)!important;height:auto}
+.tv-duo .tv-hele{position:absolute;z-index:2;left:calc(var(--sw)*.38);top:calc(var(--sw)*1.4815*.4);width:calc(var(--sw)*1.4815*.5*1.3667);height:auto;max-width:none;filter:drop-shadow(0 0 24px rgba(43,108,255,.45))}
+.tv-duo .tv-hring{position:absolute;z-index:1;left:calc(var(--sw)*-.12);top:calc(var(--sw)*.15);width:calc(var(--sw)*1.75);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(43,108,255,.30),rgba(43,108,255,.06) 60%,transparent 71%);box-shadow:inset 0 0 0 1.5px rgba(122,164,255,.45)}
+.tv-duo figcaption{position:relative;z-index:3}
+.intro-on .tv-duo .tv-hele,.intro-on .tv-duo .tv-hring{opacity:0}
+.tv-reveal .tv-duo .tv-hele,.tv-reveal .tv-duo .tv-hring{opacity:1!important;transition:opacity .4s ease}
+@media(min-width:1000px){.s1-fig.tv-duo{margin-left:-12vw}}
+@media(max-width:700px){.tv-duo{--sw:120px;margin-right:auto}}
+.tv-scene{position:absolute;inset:0;z-index:1;pointer-events:none;transform-origin:0 0;will-change:transform,opacity}
+.tv-scene .tv-icv{position:absolute;left:0;top:0;z-index:2}
+.tv-iele{position:absolute;z-index:1;height:auto;max-width:none;opacity:0;clip-path:inset(0 100% 0 0);filter:blur(6px) drop-shadow(0 0 24px rgba(43,108,255,.5));transform:scale(.94);transform-origin:20% 90%;transition:clip-path 1s cubic-bezier(.65,0,.35,1),opacity .5s ease,filter .9s ease,transform 1s var(--e)}
+.tv-iele.on{opacity:1;clip-path:inset(0 0 0 0);filter:blur(0) drop-shadow(0 0 24px rgba(43,108,255,.5));transform:none}

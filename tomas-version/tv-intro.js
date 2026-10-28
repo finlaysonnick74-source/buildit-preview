@@ -1,6 +1,6 @@
 /* Tomas's version: intro. Tomas builds from glowing points, his name and line land, then he glides into the hero. Loaded before app.js. */
 (function(){
-var raf=0,cv=null,P=null,E=null,img=null,txt=null,box=null,gliding=false;
+var raf=0,cv=null,sc=null,ele=null,P=null,E=null,img=null,txt=null,box=null,gliding=false;
 function prep(cb){
  if(P)return cb();
  img=new Image();img.onload=function(){
@@ -20,17 +20,18 @@ function prep(cb){
 }
 
 function layout(){var W=innerWidth,H=innerHeight,ar=P[0].ar,hh,ww,ox,oy,wide=W>=800;
- if(wide){hh=H*.66;ww=hh/ar;ox=W*.5-ww-W*.03;oy=(H-hh)/2}else{hh=H*.46;ww=hh/ar;ox=(W-ww)/2;oy=H*.09}
+ if(wide){hh=H*.66;ww=hh/ar;ox=W*.32-ww;oy=(H-hh)/2}else{hh=H*.44;ww=hh/ar;ox=W*.5-ww*.95;oy=H*.09}
  return{W:W,H:H,hh:hh,ww:ww,ox:ox,oy:oy,wide:wide}}
 function start(intro){
  gliding=false;
  prep(function(){
-  if(!cv){cv=document.createElement('canvas');cv.className='tv-icv';cv.setAttribute('aria-hidden','true');intro.appendChild(cv);
+  if(!cv){sc=document.createElement('div');sc.className='tv-scene';sc.setAttribute('aria-hidden','true');intro.appendChild(sc);ele=new Image();ele.className='tv-iele';ele.alt='';ele.decoding='async';ele.src='img/tv-elephant-560.webp';sc.appendChild(ele);cv=document.createElement('canvas');cv.className='tv-icv';sc.appendChild(cv);
    txt=document.createElement('div');txt.className='tv-itxt';txt.innerHTML='<p class="tv-iname">Tomas</p><p class="tv-iline">Every site I build is a step forward.</p>';intro.appendChild(txt)}
-  cv.style.transition='none';cv.style.transform='none';cv.style.opacity='1';intro.style.transition='none';intro.style.backgroundColor='';
+  sc.style.transition='none';sc.style.transform='none';sc.style.opacity='1';ele.classList.remove('on');intro.style.transition='none';intro.style.backgroundColor='';
   txt.classList.remove('on','off');void txt.offsetWidth;
   var L=box=layout(),dpr=Math.min(devicePixelRatio||1,2);cv.width=L.W*dpr;cv.height=L.H*dpr;cv.style.width=L.W+'px';cv.style.height=L.H+'px';
-  txt.className='tv-itxt '+(L.wide?'w':'n');txt.style.top=L.wide?'50%':(L.oy+L.hh+18)+'px';
+  var eh=L.hh*.5;ele.style.height=eh+'px';ele.style.width=(eh*1.3667)+'px';ele.style.left=(L.ox+L.ww*.38)+'px';ele.style.top=(L.oy+L.hh*.4)+'px';setTimeout(function(){if(!gliding)ele.classList.add('on')},250);
+  txt.className='tv-itxt '+(L.wide?'w':'n');txt.style.top=L.wide?'50%':(L.oy+L.hh+18)+'px';if(L.wide)txt.style.left=(L.ox+L.ww*.38+eh*1.3667+L.W*.025)+'px';
   var x=cv.getContext('2d'),t0=performance.now(),ox=L.ox*dpr,oy=L.oy*dpr,ww=L.ww*dpr,hh=L.hh*dpr;
   function f(t){
    var k=Math.min(1,Math.max(0,(t-t0)/800)),e=1-Math.pow(1-k,4);x.clearRect(0,0,cv.width,cv.height);
@@ -50,15 +51,15 @@ function glide(intro,done){
  var fin=function(){cancelAnimationFrame(raf);document.documentElement.classList.remove('tv-reveal');done()};
  if(!cv||!box){fin();return}
  txt.classList.add('on');
- var target=document.querySelector('.s1-fig img'),D=800;
+ ele.classList.add('on');var target=document.querySelector('.s1-fig .tv-me')||document.querySelector('.s1-fig img'),D=800;
  intro.style.transition='background-color '+(D-150)+'ms ease 150ms';intro.style.backgroundColor='rgba(4,5,10,0)';
  txt.classList.add('off');
  if(target){var r=target.getBoundingClientRect(),s=r.height/box.hh;
-  cv.style.transformOrigin='0 0';cv.style.transition='transform '+D+'ms cubic-bezier(.65,0,.35,1),opacity 350ms ease '+(D-80)+'ms';
-  requestAnimationFrame(function(){cv.style.transform='translate3d('+(r.left-box.ox*s)+'px,'+(r.top-box.oy*s)+'px,0) scale('+s+')';cv.style.opacity='0'});
+  sc.style.transition='transform '+D+'ms cubic-bezier(.65,0,.35,1),opacity 350ms ease '+(D-80)+'ms';
+  requestAnimationFrame(function(){sc.style.transform='translate3d('+(r.left-box.ox*s)+'px,'+(r.top-box.oy*s)+'px,0) scale('+s+')';sc.style.opacity='0'});
   setTimeout(function(){document.documentElement.classList.add('tv-reveal')},D-120);
   setTimeout(fin,D+300);
- }else{cv.style.transition='opacity 500ms ease';cv.style.opacity='0';setTimeout(fin,550)}
+ }else{sc.style.transition='opacity 500ms ease';sc.style.opacity='0';setTimeout(fin,550)}
 }
 window.TVI={start:start,glide:glide,stop:function(){cancelAnimationFrame(raf)}};
 })();
