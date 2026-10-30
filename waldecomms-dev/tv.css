@@ -139,3 +139,4 @@ html.intro-on #intro[hidden]{display:flex;animation:tvIntroFail 0s 5s forwards}
 .intro .intro-line,.intro .intro-strips,.intro .intro-meta{opacity:0!important}
 .intro .intro-mark{display:none!important}
 .intro{background:#04050a}
+.cards{grid-auto-rows:1fr}
