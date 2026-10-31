@@ -25,7 +25,7 @@ function layout(){var W=innerWidth,H=innerHeight,ar=P[0].ar,hh,ww,ox,oy,wide=W>=
 function start(intro){
  gliding=false;
  prep(function(){
-  if(!cv){sc=document.createElement('div');sc.className='tv-scene';sc.setAttribute('aria-hidden','true');intro.appendChild(sc);ele=document.createElement('div');ele.className='tv-iele';eimg=new Image();eimg.alt='';eimg.src='img/tv-elephant-560.webp';ele.appendChild(eimg);sc.appendChild(ele);cv=document.createElement('canvas');cv.className='tv-icv';sc.appendChild(cv);
+  if(!cv){sc=document.createElement('div');sc.className='tv-scene';sc.setAttribute('aria-hidden','true');intro.appendChild(sc);ele=document.createElement('div');ele.className='tv-iele';eimg=new Image();eimg.alt='';eimg.src='img/tv-elephant-glow.webp';ele.appendChild(eimg);sc.appendChild(ele);cv=document.createElement('canvas');cv.className='tv-icv';sc.appendChild(cv);
    txt=document.createElement('div');txt.className='tv-itxt';txt.innerHTML='<p class="tv-iname">Tomas</p><p class="tv-iline">Every site I build is a step forward.</p>';intro.appendChild(txt)}
   sc.style.transition='none';sc.style.transform='none';sc.style.opacity='1';ele.classList.remove('on');intro.style.transition='none';intro.style.backgroundColor='';
   txt.classList.remove('on','off');void txt.offsetWidth;

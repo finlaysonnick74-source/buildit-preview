@@ -133,6 +133,6 @@ main>section.s,main .oldwrap>section{position:relative}
 .tv-scene .tv-icv{position:absolute;left:0;top:0;z-index:2}
 .tv-iele{position:absolute;z-index:1;opacity:0;clip-path:inset(-90px 100% -90px -90px);-webkit-clip-path:inset(-90px 100% -90px -90px);transform:scale(.94);transform-origin:20% 90%;transition:clip-path 1s cubic-bezier(.65,0,.35,1),-webkit-clip-path 1s cubic-bezier(.65,0,.35,1),opacity .9s ease,transform 1s var(--e)}
 .tv-iele.on{opacity:1;clip-path:inset(-90px -90px -90px -90px);-webkit-clip-path:inset(-90px -90px -90px -90px);transform:none}
-.tv-iele img{display:block;width:100%;height:100%;max-width:none;filter:drop-shadow(0 0 24px rgba(43,108,255,.5))}
+.tv-iele img{display:block;width:117.143%;height:auto;max-width:none;margin:-8.571% 0 0 -8.571%}
 
 @media(min-width:821px){.cards>.wc.proud{align-items:stretch}.cards>.wc.proud>img{height:100%;object-fit:cover}}
