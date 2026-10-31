@@ -1,6 +1,6 @@
 /* Tomas's version: intro. Tomas builds from glowing points, his name and line land, then he glides into the hero. Loaded before app.js. */
 (function(){
-var raf=0,cv=null,sc=null,ele=null,P=null,E=null,img=null,txt=null,box=null,gliding=false;
+var eimg,raf=0,cv=null,sc=null,ele=null,P=null,E=null,img=null,txt=null,box=null,gliding=false;
 function prep(cb){
  if(P)return cb();
  img=new Image();img.onload=function(){
@@ -25,12 +25,12 @@ function layout(){var W=innerWidth,H=innerHeight,ar=P[0].ar,hh,ww,ox,oy,wide=W>=
 function start(intro){
  gliding=false;
  prep(function(){
-  if(!cv){sc=document.createElement('div');sc.className='tv-scene';sc.setAttribute('aria-hidden','true');intro.appendChild(sc);ele=new Image();ele.className='tv-iele';ele.alt='';ele.decoding='async';ele.src='img/tv-elephant-560.webp';sc.appendChild(ele);cv=document.createElement('canvas');cv.className='tv-icv';sc.appendChild(cv);
+  if(!cv){sc=document.createElement('div');sc.className='tv-scene';sc.setAttribute('aria-hidden','true');intro.appendChild(sc);ele=document.createElement('div');ele.className='tv-iele';eimg=new Image();eimg.alt='';eimg.src='img/tv-elephant-560.webp';ele.appendChild(eimg);sc.appendChild(ele);cv=document.createElement('canvas');cv.className='tv-icv';sc.appendChild(cv);
    txt=document.createElement('div');txt.className='tv-itxt';txt.innerHTML='<p class="tv-iname">Tomas</p><p class="tv-iline">Every site I build is a step forward.</p>';intro.appendChild(txt)}
   sc.style.transition='none';sc.style.transform='none';sc.style.opacity='1';ele.classList.remove('on');intro.style.transition='none';intro.style.backgroundColor='';
   txt.classList.remove('on','off');void txt.offsetWidth;
   var L=box=layout(),dpr=Math.min(devicePixelRatio||1,2);cv.width=L.W*dpr;cv.height=L.H*dpr;cv.style.width=L.W+'px';cv.style.height=L.H+'px';
-  var eh=L.hh*.5;ele.style.height=eh+'px';ele.style.width=(eh*1.3667)+'px';ele.style.left=(L.ox+L.ww*.38)+'px';ele.style.top=(L.oy+L.hh*.4)+'px';setTimeout(function(){if(!gliding)ele.classList.add('on')},250);
+  var eh=L.hh*.5;ele.style.height=eh+'px';ele.style.width=(eh*1.3667)+'px';ele.style.left=(L.ox+L.ww*.38)+'px';ele.style.top=(L.oy+L.hh*.4)+'px';var t0=Date.now(),eon=function(){setTimeout(function(){if(!gliding)ele.classList.add('on')},Math.max(0,250-(Date.now()-t0)))};(eimg.decode?eimg.decode():Promise.resolve()).then(eon,eon);
   txt.className='tv-itxt '+(L.wide?'w':'n');txt.style.top=L.wide?'50%':(L.oy+L.hh+18)+'px';if(L.wide)txt.style.left=(L.ox+L.ww*.38+eh*1.3667+L.W*.025)+'px';
   var x=cv.getContext('2d'),t0=performance.now(),ox=L.ox*dpr,oy=L.oy*dpr,ww=L.ww*dpr,hh=L.hh*dpr;
   function f(t){
