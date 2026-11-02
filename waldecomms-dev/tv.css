@@ -148,3 +148,11 @@ main>section.s,main .oldwrap>section{position:relative}
 .tcard a,.area a{color:#7aa4ff}
 .area .lvl i.on{background:#2b6cff}
 @media(prefers-reduced-motion:reduce){.tcard,.area{transition:none}}
+/* progress: "Sites I've built" as three equal cards */
+#sites .cards{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px}
+#sites .cards>.wc.proud{grid-column:auto!important;display:flex!important;flex-direction:column;align-items:stretch}
+#sites .cards>.wc.proud>img{width:100%;height:auto!important;aspect-ratio:16/10;object-fit:cover}
+#sites .cards>.wc.proud>div{padding:22px 22px 24px!important;align-self:stretch}
+#sites .cards>.wc.proud h3{font-size:24px!important}
+#sites .flag{display:none}
+@media(max-width:900px){#sites .cards{grid-template-columns:1fr!important}}
