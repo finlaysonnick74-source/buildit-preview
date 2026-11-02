@@ -136,3 +136,15 @@ main>section.s,main .oldwrap>section{position:relative}
 .tv-iele img{display:block;width:117.143%;height:auto;max-width:none;margin:-8.571% 0 0 -8.571%}
 
 @media(min-width:821px){.cards>.wc.proud{align-items:stretch}.cards>.wc.proud>img{height:100%;object-fit:cover}}
+/* progress page: align ladder, site cards and learning areas with the main card system */
+.ladder{max-width:none;border-left-color:rgba(122,164,255,.45)}
+.ladder .st,.tcard,.area{border-radius:20px!important;border:0!important;background:#0d1a3d!important;transition:transform .5s var(--e),box-shadow .5s}
+.ladder .st.next,.tcard.nxt{background:#0a0f1f!important;box-shadow:inset 0 0 0 1.5px rgba(122,164,255,.45)}
+.tcard:hover,.area:hover{transform:translateY(-6px);box-shadow:0 30px 60px -24px rgba(43,108,255,.7)}
+.ladder .st::before{background:#2b6cff}
+.ladder .next::before{background:#04050a;border-color:#7aa4ff}
+.ladder .tno,.tcard .tno{font:700 13px "Figtree",system-ui,sans-serif;color:#7aa4ff;letter-spacing:.18em;text-transform:uppercase}
+.ladder b,.tcard h3,.area h3{color:#eef2ff}
+.tcard a,.area a{color:#7aa4ff}
+.area .lvl i.on{background:#2b6cff}
+@media(prefers-reduced-motion:reduce){.tcard,.area{transition:none}}
