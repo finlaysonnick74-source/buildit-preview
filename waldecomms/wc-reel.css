@@ -11,3 +11,6 @@
 #wc-modal video{width:100%;display:block;border-radius:14px;max-height:80vh;background:#000}
 #wc-modal .wc-x{position:absolute;top:-14px;right:-6px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#000;font-size:22px;line-height:1;cursor:pointer;z-index:2}
 .wc-media.wc-land video{width:100%;height:100%;object-fit:cover;object-position:top}
+.wc-media video{position:absolute;inset:0;width:100%;height:100%}
+.wc-media:not(.wc-land) video{object-fit:contain}
+@media(min-width:821px){.cards>.wc.proud>.wc-media{min-height:380px}}
