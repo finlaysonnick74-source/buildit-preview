@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /tomas-private/
+
+Sitemap: https://buildit.net.au/sitemap.xml
